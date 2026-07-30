@@ -364,17 +364,17 @@
       <div class="field-row">
         <div class="field">
           <label for="firstName">ชื่อ (ภาษาอังกฤษเท่านั้น) <span class="req">*</span></label>
-          <input type="text" id="firstName" placeholder="e.g. Somchai" />
+          <input type="text" id="firstName" placeholder=" " />
         </div>
         <div class="field">
           <label for="lastName">นามสกุล (ภาษาอังกฤษเท่านั้น) <span class="req">*</span></label>
-          <input type="text" id="lastName" placeholder="e.g. Jaidee" />
+          <input type="text" id="lastName" placeholder=" " />
         </div>
       </div>
 
       <div class="field">
         <label for="nationalId">เลขบัตรประชาชน 13 หลัก <span class="req">*</span></label>
-        <input type="text" id="nationalId" placeholder="1234567890123" inputmode="numeric" maxlength="17" />
+        <input type="text" id="nationalId" placeholder=" " inputmode="numeric" maxlength="17" />
       </div>
 
       <div class="field">
@@ -387,11 +387,11 @@
       <div class="field-row">
         <div class="field">
           <label for="phone">เบอร์โทรศัพท์ 10 หลัก <span class="req">*</span></label>
-          <input type="tel" id="phone" placeholder="0812345678" inputmode="numeric" maxlength="10" />
+          <input type="tel" id="phone" placeholder=" " inputmode="numeric" maxlength="10" />
         </div>
         <div class="field">
           <label for="email">อีเมล <span class="req">*</span></label>
-          <input type="email" id="email" placeholder="you@example.com" />
+          <input type="email" id="email" placeholder=" " />
         </div>
       </div>
     </div>
@@ -402,12 +402,12 @@
 
       <div class="field">
         <label for="institution">ชื่อสถาบันการศึกษาที่กำลังศึกษาอยู่ หรือจบมาแล้วขั้นสูงสุด <span class="req">*</span></label>
-        <input type="text" id="institution" placeholder="เช่น จุฬาลงกรณ์มหาวิทยาลัย" />
+        <input type="text" id="institution" placeholder=" " />
       </div>
 
       <div class="field" style="position:relative;">
         <label for="province">ที่ตั้งของสถาบันการศึกษา (จังหวัด) <span class="req">*</span></label>
-        <input type="text" id="province" placeholder="พิมพ์ชื่อจังหวัด แล้วเลือกจากรายการ" autocomplete="off" />
+        <input type="text" id="province" placeholder="พิมพ์ชื่อจังหวัด (ภาษาไทย)" autocomplete="off" />
         <div id="provinceDropdown" class="autocomplete-dropdown"></div>
       </div>
 
@@ -425,7 +425,7 @@
 
       <div class="notice-banner">
         <div class="notice-banner-head">
-          <span>หมายเหตุ / เงื่อนไขการใช้ E-Coupon</span>
+          <span>เงื่อนไขการใช้ E-Coupon</span>
         </div>
         <div class="notice-banner-body">
           <ol>
@@ -661,20 +661,20 @@
       ctx.drawImage(img, 0, 0);
       ctx.textBaseline = 'alphabetic';
 
-      // เลขที่คูปอง (ในกล่องขาวด้านขวาบน ถัดจาก "No.")
-      ctx.font = "700 46px 'Sarabun', sans-serif";
-      ctx.fillStyle = '#1A1A1A';
-      ctx.fillText(couponNo, 1420, 112);
+      // เลขที่คูปอง (ในกล่องขาวด้านขวาบน ถัดจาก "No.") — สีแดงเข้ม จัดแนวเดียวกับคำว่า "No."
+      ctx.font = "700 55px 'Sarabun', sans-serif";
+      ctx.fillStyle = '#8B1A1A';
+      ctx.fillText(couponNo, 1490, 87 );
 
-      // เลขบัตรประชาชน (บนเส้น National ID)
-      ctx.font = "600 40px 'Sarabun', sans-serif";
-      ctx.fillStyle = '#1A1A1A';
-      ctx.fillText(formatNationalId(nationalId), 400, 505);
+      // เลขบัตรประชาชน  — สีน้ำเงิน
+      ctx.font = "600 65px 'Sarabun', sans-serif";
+      ctx.fillStyle = '#153CB4';
+      ctx.fillText(formatNationalId(nationalId), 430, 540);
 
-      // ชื่อ-นามสกุล (บนเส้น Name)
-      ctx.font = "600 42px 'Sarabun', sans-serif";
-      ctx.fillStyle = '#1A1A1A';
-      ctx.fillText(fullName, 230, 645);
+      // ชื่อ-นามสกุล — สีน้ำเงิน
+      ctx.font = "600 65px 'Sarabun', sans-serif";
+      ctx.fillStyle = '#153CB4';
+      ctx.fillText(fullName, 415, 637);
 
       const dataUrl = canvas.toDataURL('image/png');
       _lastCouponDataUrl = dataUrl;
