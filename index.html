@@ -728,17 +728,17 @@
       // เลขที่คูปอง (ในกล่องขาวด้านขวาบน ถัดจาก "No.") — สีแดงเข้ม จัดแนวเดียวกับคำว่า "No."
       ctx.font = "700 55px 'Sarabun', sans-serif";
       ctx.fillStyle = '#8B1A1A';
-      ctx.fillText(couponNo, 1480, 95 );
+      ctx.fillText(couponNo, 1490, 87 );
 
-      // เลขบัตรประชาชน (วางเหนือเส้นประ National ID พอดี ไม่ทับเส้น) — สีน้ำเงิน
-      ctx.font = "600 50px 'Sarabun', sans-serif";
+      // เลขบัตรประชาชน  — สีน้ำเงิน
+      ctx.font = "600 65px 'Sarabun', sans-serif";
       ctx.fillStyle = '#153CB4';
-      ctx.fillText(formatNationalId(nationalId), 430, 520);
+      ctx.fillText(formatNationalId(nationalId), 430, 540);
 
-      // ชื่อ-นามสกุล (วางเหนือเส้นประ Name พอดี ไม่ทับเส้น) — สีน้ำเงิน
-      ctx.font = "600 50px 'Sarabun', sans-serif";
+      // ชื่อ-นามสกุล — สีน้ำเงิน
+      ctx.font = "600 65px 'Sarabun', sans-serif";
       ctx.fillStyle = '#153CB4';
-      ctx.fillText(fullName, 430, 637);
+      ctx.fillText(fullName, 415, 637);
 
       const dataUrl = canvas.toDataURL('image/png');
       _lastCouponDataUrl = dataUrl;
