@@ -661,20 +661,20 @@
       ctx.drawImage(img, 0, 0);
       ctx.textBaseline = 'alphabetic';
 
-      // เลขที่คูปอง (ในกล่องขาวด้านขวาบน ถัดจาก "No.") — สีแดงเข้ม จัดแนวเดียวกับคำว่า "No."
+      // เลขที่คูปอง (ในกล่องขาวด้านขวาบน ถัดจาก "No.")
       ctx.font = "700 46px 'Sarabun', sans-serif";
-      ctx.fillStyle = '#8B1A1A';
-      ctx.fillText(couponNo, 1445, 102);
+      ctx.fillStyle = '#1A1A1A';
+      ctx.fillText(couponNo, 1420, 112);
 
-      // เลขบัตรประชาชน (วางเหนือเส้นประ National ID พอดี ไม่ทับเส้น) — สีน้ำเงิน
-      ctx.font = "600 38px 'Sarabun', sans-serif";
-      ctx.fillStyle = '#153CB4';
-      ctx.fillText(formatNationalId(nationalId), 400, 497);
-
-      // ชื่อ-นามสกุล (วางเหนือเส้นประ Name พอดี ไม่ทับเส้น) — สีน้ำเงิน
+      // เลขบัตรประชาชน (บนเส้น National ID)
       ctx.font = "600 40px 'Sarabun', sans-serif";
-      ctx.fillStyle = '#153CB4';
-      ctx.fillText(fullName, 230, 637);
+      ctx.fillStyle = '#1A1A1A';
+      ctx.fillText(formatNationalId(nationalId), 400, 505);
+
+      // ชื่อ-นามสกุล (บนเส้น Name)
+      ctx.font = "600 42px 'Sarabun', sans-serif";
+      ctx.fillStyle = '#1A1A1A';
+      ctx.fillText(fullName, 230, 645);
 
       const dataUrl = canvas.toDataURL('image/png');
       _lastCouponDataUrl = dataUrl;
