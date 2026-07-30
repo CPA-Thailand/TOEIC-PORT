@@ -362,9 +362,9 @@
 
       <div class="field">
         <label for="dob">วันเดือนปีเกิด <span class="req">*</span>
-          <span class="hint">รับสิทธิ์เฉพาะผู้ที่เกิดปี ค.ศ. 2007 - 2013 เท่านั้น</span>
+          <span class="hint">รับสิทธิ์เฉพาะผู้ที่เกิดระหว่างปี ค.ศ. 2007–2013 เท่านั้น</span>
         </label>
-        <input type="date" id="dob" min="2007-01-01" />
+        <input type="date" id="dob" min="2007-01-01" max="2013-12-31" />
       </div>
 
       <div class="field-row">
@@ -518,8 +518,6 @@
   </div>
 </footer>
 
-<div class="toast" id="toast">คัดลอกแล้ว ✓</div>
-
 <script>
   // ======================================================================
   //  ตั้งค่า URL ของ Google Apps Script Web App (backend) ตรงนี้
@@ -612,10 +610,10 @@
       errors.push('กรุณาเลือกวันเดือนปีเกิด');
     } else {
       const dobYear = parseInt(payload.dob.split('-')[0], 10);
-      const todayStr = new Date().toISOString().split('T')[0];
-      if (dobYear < 2007) {
-        dob.classList.add('error');
-        errors.push('รับสิทธิ์เฉพาะผู้ที่เกิดตั้งแต่ปี ค.ศ. 2007 เป็นต้นไป');
+    if (dobYear < 2007 || dobYear > 2013) {
+      dob.classList.add('error');
+      errors.push('รับสิทธิ์เฉพาะผู้ที่เกิดระหว่างปี ค.ศ. 2007–2013 เท่านั้น');
+    }
       } else if (payload.dob > todayStr) {
         dob.classList.add('error');
         errors.push('วันเกิดไม่ถูกต้อง');
@@ -759,13 +757,6 @@
     return id.replace(/(\d)(\d{4})(\d{5})(\d{2})(\d)/, '$1-$2-$3-$4-$5');
   }
 
-  function copyCouponNo() {
-    navigator.clipboard.writeText(_lastCouponNo).then(() => {
-      const t = document.getElementById('toast');
-      t.classList.add('show');
-      setTimeout(() => t.classList.remove('show'), 2000);
-    });
-  }
 
   function downloadCoupon() {
     if (!_lastCouponDataUrl) return;
